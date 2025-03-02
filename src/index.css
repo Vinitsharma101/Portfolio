@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-gray-900 text-white;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.model-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gradient-text-name{
+  @apply bg-clip-text text-transparent bg-gradient-to-r to-blue-100 from-purple-700;
+
+}
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-purple-800;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Active nav indicator */
+.nav-indicator {
+  @apply absolute -bottom-px left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-600 transform scale-x-0 transition-transform duration-300;
+}
+
+.active .nav-indicator {
+  @apply scale-x-100;
+}
+
+/* Animated background for tech stack */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.float-icon {
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-icon:nth-child(odd) {
+  animation-duration: 9s;
+}
+
+.float-icon:nth-child(3n) {
+  animation-duration: 10s;
+}
+
+.float-icon:nth-child(3n+1) {
+  animation-duration: 11s;
+}
+
+/* Form focus effects */
+input:focus, textarea:focus {
+  @apply ring-2 ring-blue-500 ring-opacity-50 border-transparent;
+}
+
+/* Button hover effects */
+.btn-gradient {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all;
+}
+
+/* Contact form animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* New animations for home page */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Glowing effect */
+.glow {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* Particle animation */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  pointer-events: none;
+}
