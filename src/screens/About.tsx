@@ -7,6 +7,7 @@ import {
   Smartphone,
   ExternalLink,
 } from "lucide-react";
+import {CardSpotlight} from "../components/card-spotlight";
 
 const About: React.FC = () => {
   return (
@@ -51,11 +52,17 @@ const About: React.FC = () => {
                 </ul>
               </div>
             </div>
-
+             
             {/* Right column - Tech Enthusiast Container */}
             <div>
-              <div className="relative p-6 bg-black/50 rounded-xl border border-gray-800 overflow-hidden h-full">
-                {/* Background tech logos (decorative) */}
+              <CardSpotlight className="h-full">
+                <div className="relative z-10 mb-8">
+                  <div className="text-gray-400 mb-1">Tech Enthusiast</div>
+                  <h4 className="text-xl font-semibold text-white">
+                    Passionate about cutting-edge development technologies
+                  </h4>
+                </div>
+
                 <div className="absolute inset-0 opacity-10 flex flex-wrap justify-center items-center gap-4 p-4">
                   {Array(20)
                     .fill(0)
@@ -79,15 +86,7 @@ const About: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Tech Enthusiast Label */}
-                <div className="relative z-10 mb-8">
-                  <div className="text-gray-400 mb-1">Tech Enthusiast</div>
-                  <h4 className="text-xl font-semibold text-white">
-                    Passionate about cutting-edge development technologies
-                  </h4>
-                </div>
-
-                <div className="relative z-10 space-y-4 pt-5">
+                <div className="relative z-10">
                   <p className="text-gray-300">
                     I'm constantly exploring new technologies and frameworks to
                     enhance my development skills and create better solutions.
@@ -101,14 +100,14 @@ const About: React.FC = () => {
                   <div className="pt-4">
                     <a
                       href="#tech"
-                      className="inline-flex items-center  px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all text-sm"
+                      className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all text-sm"
                     >
                       View My Tech Stack
                       <ExternalLink size={16} className="ml-2" />
                     </a>
                   </div>
                 </div>
-              </div>
+              </CardSpotlight>
             </div>
           </div>
         </div>
