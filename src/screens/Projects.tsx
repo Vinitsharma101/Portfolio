@@ -1,23 +1,16 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useAnimation, useMotionValue } from "framer-motion";
 import { ExternalLink, Github, ChevronLeft } from "lucide-react";
-import  RotatingProjects  from "../components/RotatingProjects";
-
-interface ProjectImage {
-  url: string;
-  alt: string;
-}
-
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  images: ProjectImage[];
-  githubUrl?: string;
-  liveUrl?: string;
-}
+import { projects } from "../components/ProjectData";
 
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const controls = useAnimation();
+  const x = useMotionValue(0);
+  const speed = 50;
 
   const handleProjectClick = (index: number) => {
     setSelectedProject(index);
@@ -27,113 +20,42 @@ const Projects: React.FC = () => {
     setSelectedProject(null);
   };
 
-  const projects: Project[] = [
+  useEffect(() => {
+    if (containerRef.current && contentRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const contentRect = contentRef.current.getBoundingClientRect();
+      const containerWidth = containerRect.width;
+      const contentWidth = contentRect.width;
+      const requiredWidth = containerWidth * 2;
+      const duplications = Math.ceil(requiredWidth / contentWidth) + 1;
+      const from = 0;
+      const to = -contentWidth * (duplications - 1);
+      const distance = Math.abs(to - from);
+      const duration = distance / speed;
 
-  {
-    title: "Project Management Web App",
-    description:
-      "A feature-rich platform for managing private projects, tracking tasks, handling issues, and team collaboration. Includes user authentication and dynamic dashboards.",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1581090700227-1e37b190418e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80",
-        alt: "Project Management Dashboard",
-      },
-    ],
-    githubUrl: "https://github.com/vinitsharma/project-manager",
-    liveUrl: "https://project-manager-app.vercel.app",
-  },
-  {
-    title: "E-Commerce Website",
-    description:
-      "A fully functional e-commerce platform featuring product listings, cart functionality, user authentication, and order management.",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1606312618775-897448ae79ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80",
-        alt: "E-Commerce Website",
-      },
-    ],
-    githubUrl: "https://github.com/vinitsharma/e-commerce-site",
-    liveUrl: "https://shopwithvinit.vercel.app",
-  },
-  {
-    title: "Music Web App",
-    description:
-      "A modern music streaming application with dynamic playlists, song discovery, and a smooth, responsive interface.",
-    technologies: ["MERN", "React", "Node.js", "MongoDB", "Express"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1581276879432-c44c0b16d37f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80",
-        alt: "Music Streaming App",
-      },
-    ],
-    githubUrl: "https://github.com/vinitsharma/music-app",
-    liveUrl: "https://vinitmusic.vercel.app",
-  },
-  {
-    title: "Crypto Tracker API",
-    description:
-      "Backend service that tracks live cryptocurrency prices using the CoinGecko API and serves them through RESTful endpoints.",
-    technologies: ["Node.js", "Express", "MongoDB", "CoinGecko API"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1622631614442-65b5e94745b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80",
-        alt: "Crypto Price Tracker",
-      },
-    ],
-    githubUrl: "https://github.com/vinitsharma/crypto-tracker-api",
-    liveUrl: "https://crypto-api-vinit.onrender.com",
-  },
-  {
-    title: "Authentication System",
-    description:
-      "Reusable backend authentication system with signup, login, password hashing, and JWT-based session management.",
-    technologies: ["Node.js", "Express", "JWT", "bcrypt", "MongoDB"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1633356122031-0f245564f4b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80",
-        alt: "Secure Auth System",
-      },
-    ],
-    githubUrl: "https://github.com/vinitsharma/auth-system",
-    liveUrl: "https://auth-vinit.onrender.com",
-  },
-  {
-    title: "Language Translator App",
-    description:
-      "Real-time language translator that detects input text and returns translated output using third-party translation APIs.",
-    technologies: ["React", "Node.js", "API Integration", "Express"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1614850523450-4d4e7bd9ef25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80",
-        alt: "Language Translator App",
-      },
-    ],
-    githubUrl: "https://github.com/vinitsharma/translator-app",
-    liveUrl: "https://translator-vinit.vercel.app",
-  },
-  {
-    title: "Chat Application",
-    description:
-      "A cross-platform real-time chat application built using MERN stack and React Native. Supports individual and group conversations.",
-    technologies: ["MERN", "React Native", "Socket.io", "Firebase"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1616531770192-9a0f63c5e40c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80",
-        alt: "Chat App UI",
-      },
-    ],
-    githubUrl: "https://github.com/vinitsharma/chat-app",
-    liveUrl: "https://chat-vinit.vercel.app",
-  }
+      if (!isHovering) {
+        controls.start({
+          x: to,
+          transition: {
+            duration,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop",
+          },
+        });
+      } else {
+        controls.stop();
+      }
+    }
+  }, [isHovering, controls]);
 
-
-    // ... rest of the projects array ...
-  ];
+  const duplicatedProjects = Array(4)
+    .fill(projects)
+    .flat()
+    .map((project, index) => ({ ...project, id: index }));
 
   return (
-    <div  id= "projects"className="py-24 bg-dark-surface min-h-screen">
+    <section id="projects" className="py-24 bg-dark-surface min-h-screen">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gradient-text">
           Projects
@@ -143,9 +65,55 @@ const Projects: React.FC = () => {
           innovative solutions.
         </p>
 
-        <RotatingProjects projects={projects} onProjectClick={handleProjectClick} />
+        <div ref={containerRef} className="relative w-full overflow-hidden">
+          {/* Left Gradient */}
+          <div className="absolute left-0 top-0 w-32 h-full z-10 pointer-events-none bg-gradient-to-r from-dark-surface to-transparent" />
+          
+          <motion.div
+            ref={contentRef}
+            className="flex py-8"
+            animate={controls}
+            style={{ x }}
+            onHoverStart={() => setIsHovering(true)}
+            onHoverEnd={() => setIsHovering(false)}
+          >
+            {duplicatedProjects.map((project, index) => (
+              <div
+                key={index}
+                className="w-80 mx-7 min-w-[18rem] h-[375px] bg-gradient-to-br from-dark-bg to-black/80 border border-gray-800 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform hover:scale-105 relative group"
+                onClick={() => handleProjectClick(project.id)}
+              >
+                <img
+                  src={project.images[0]?.url || ""}
+                  alt={project.title}
+                  className="  w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
+                />
+                <div className="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-gray-300 mb-3">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 bg-gray-800/80 text-xs text-gray-300 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
 
-        {/* Project Details Modal */}
+          {/* Right Gradient */}
+          <div className="absolute right-0 top-0 w-32 h-full z-10 pointer-events-none bg-gradient-to-l from-dark-surface to-transparent" />
+        </div>
+
         {selectedProject !== null && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
             <div className="bg-dark-bg border border-gray-800 rounded-2xl p-6 max-w-2xl w-full relative">
@@ -208,7 +176,7 @@ const Projects: React.FC = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
