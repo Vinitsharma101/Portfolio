@@ -6,9 +6,12 @@ import TechStack from './screens/TechStack';
 import Projects from './screens/Projects';
 import Contact from './screens/Contact';
 import AnimatedBackground from './components/AnimatedBackground';
-// import Cylinder from './3DPortfolio/Cylinder';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import  { useState } from 'react';
 
 function App() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-dark-bg text-white flex flex-col relative overflow-hidden">
       {/* Animated Background */}
@@ -22,8 +25,6 @@ function App() {
       >
         {/* Left side - Name and Info (1/2) */}
         <Home />
-
-        
       </section>
       {/* About Section */}
       <About />
@@ -31,8 +32,10 @@ function App() {
       <TechStack />
       {/* Projects Section */}
       <Projects />
-      {/* Contact Section */}
-      <Contact />
+      
+      {/* Contact Modal */}
+      {isContactOpen && <Contact onClose={() => setIsContactOpen(false)} />}
+      <ScrollToTopButton onOpenContact={() => setIsContactOpen(true)} />
     </div>
   );
 }

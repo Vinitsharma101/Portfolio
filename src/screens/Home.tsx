@@ -131,7 +131,7 @@ const HeroSection: React.FC = () => {
                 style={{ animationDelay: "1100ms" }}
               >
                 <a
-                  href="/resume.pdf"
+                  href="/Vinit's Resume.pdf"
                   download="Vinit_Sharma_Resume.pdf"
                   className="secondary-button group"
                 >

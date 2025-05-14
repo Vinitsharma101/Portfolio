@@ -26,7 +26,7 @@ const About: React.FC = () => {
                 I'm a Computer Science undergraduate at Chandigarh University
                 (2022-2026) with a passion for full-stack development. I
                 specialize in building modern, responsive web and mobile
-                applications using the MERN stack and React Native.
+                applications using the Full stack and React Native.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 With a strong foundation in C++, JavaScript and Data Structures
@@ -100,7 +100,7 @@ const About: React.FC = () => {
                   <div className="pt-4">
                     <a
                       href="#tech"
-                      className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all text-sm"
+                      className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-red-500 to-purple-600 rounded-lg text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all text-sm"
                     >
                       View My Tech Stack
                       <ExternalLink size={16} className="ml-2" />

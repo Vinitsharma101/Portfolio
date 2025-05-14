@@ -15,7 +15,6 @@ const Navbar: React.FC = () => {
     { id: 'about', label: 'About' },
     { id: 'tech', label: 'Tech Stack' },
     { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' },
   ];
 
   // Update active section based on scroll position
