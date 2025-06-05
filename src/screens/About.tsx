@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
   Code,
   Database,
@@ -10,8 +11,19 @@ import {
 import {CardSpotlight} from "../components/card-spotlight";
 
 const About: React.FC = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="about" className="py-24 bg-dark-surface">
+    <section id="about" className="py-24 bg-dark-surface relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">
@@ -35,10 +47,10 @@ const About: React.FC = () => {
                 development, and cloud technologies.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                I’m deeply passionate about solving real-world problems through
+                I'm deeply passionate about solving real-world problems through
                 technology and constantly strive to improve my skills. Whether
-                it’s learning new frameworks like Next.js or exploring
-                cutting-edge tools, I’m always eager to stay ahead in the
+                it's learning new frameworks like Next.js or exploring
+                cutting-edge tools, I'm always eager to stay ahead in the
                 ever-evolving tech landscape.
               </p>
 
@@ -112,6 +124,30 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
+
+
+      <motion.div
+        className="absolute left-4 bottom-0 w-60 h-80 opacity-30"
+        animate={{
+          y: -scrollY * 0.37
+        }}
+        transition={{
+          y: { type: "spring", stiffness: 70 }
+        }}
+      >
+        <motion.img
+          src="/assets/baby.3c64e724122fc7c11baa.png"
+          alt="Floating icon"
+          className="w-full h-full object-contain"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.2 }}
+          transition={{
+            scale: {
+              duration: 0.5
+            }
+          }}
+        />
+      </motion.div>
     </section>
   );
 };
