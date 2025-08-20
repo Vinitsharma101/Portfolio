@@ -129,7 +129,7 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        url: "pubblic/assets/pro-manager.png", // add your screenshot in public/projects
+        url: "public/assets/promanager.png", 
         alt: "Dashboard view of project management platform with tasks and projects overview",
       },
     ],
