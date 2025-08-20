@@ -57,31 +57,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Vinitsharma101/KoinXbackend-assignment",
     liveUrl: "https://github.com/Vinitsharma101/KoinXbackend-assignment",
   },
-  {
-    title: "Secure Authentication System",
-    description:
-      "A reusable backend authentication system with JWT-based authentication, password hashing, and secure user management.",
-    technologies: [
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "JWT",
-      "Bcrypt",
-      "Firebase",
-    ],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        alt: "User authentication dashboard",
-      },
-      {
-        url: "https://files.oaiusercontent.com/file-2bJVFxCiovdqnAyBxRnnuf?se=2025-03-02T13%3A23%3A47Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Db8ebfe8c-1582-4b4d-847a-3ad932efb26b.webp&sig=UP43AsZs6fwT9ykLNIUQndIETZiuwjRzDpPRxEpLanY%3D",
-        alt: "JWT token validation screen",
-      },
-    ],
-    githubUrl: "https://github.com/Vinitsharma101/Auth-Backend-gatekeeper-api-",
-    liveUrl: "https://github.com/Vinitsharma101/Auth-Backend-gatekeeper-api-",
-  },
+  
   {
     title: "Language Translator App",
     description:
@@ -117,5 +93,47 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/Vinitsharma101/Chat-app",
     liveUrl: "https://github.com/Vinitsharma101/Chat-app",
+  },
+  {
+    title: "Location Sharing Web App",
+    description:
+      "A web application that enables users to share their live location with friends, view friends' positions in real time on an interactive map, and store their last known location for quick access.",
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "Socket.io",
+      "Leaflet.js",
+      "TailwindCSS",
+      "MongoDB",
+    ],
+    images: [
+      {
+        url: "public/assets/locateme.png",
+        alt: "Map interface showing real-time friends' locations",
+      },
+    ],
+    githubUrl: "https://github.com/Vinitsharma101/realtime-locationsharing",
+    liveUrl: "https://locatemee.vercel.app/",
+  },
+  {
+    title: "Project Management Platform",
+    description:
+      "A collaborative project management web app with real-time task tracking, team chat, and role-based access control. Users can create projects, assign tasks, track progress, and manage notifications efficiently.",
+    technologies: [
+      "Next.js",
+      "PostgreSQL",
+      "Supabase",
+      "TailwindCSS",
+      "Prisma",
+      "Socket.io",
+    ],
+    images: [
+      {
+        url: "pubblic/assets/pro-manager.png", // add your screenshot in public/projects
+        alt: "Dashboard view of project management platform with tasks and projects overview",
+      },
+    ],
+    githubUrl: "https://github.com/Vinitsharma101/teamsphere-ProMnager",
+    liveUrl: "https://github.com/Vinitsharma101/teamsphere-ProMnager",
   },
 ];
