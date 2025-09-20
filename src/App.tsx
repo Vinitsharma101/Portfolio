@@ -6,14 +6,16 @@ import TechStack from './screens/TechStack';
 import Projects from './screens/Projects';
 import Contact from './screens/Contact';
 import AnimatedBackground from './components/AnimatedBackground';
-import ScrollToTopButton from './components/ScrollToTopButton';
+import ScrollToTopButton from './components/GetInTouchButton';
 import  { useState } from 'react';
+import TargetCursor from './components/TargetCursor';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-dark-bg text-white flex flex-col relative overflow-hidden">
+      <TargetCursor spinDuration={2} hideDefaultCursor={true} />
       {/* Animated Background */}
       <AnimatedBackground />
       {/* Navbar Component */}
@@ -21,7 +23,7 @@ function App() {
       {/* Hero Section */}
       <section
         id="home"
-        className="flex-grow flex flex-col md:flex-row pt-16 content z-10"
+        className="flex-grow flex flex-col md:flex-row pt-16 content z-10 select-none"
       >
         {/* Left side - Name and Info (1/2) */}
         <Home />
@@ -32,7 +34,7 @@ function App() {
       <TechStack />
       {/* Projects Section */}
       <Projects />
-      
+
       {/* Contact Modal */}
       {isContactOpen && <Contact onClose={() => setIsContactOpen(false)} />}
       <ScrollToTopButton onOpenContact={() => setIsContactOpen(true)} />

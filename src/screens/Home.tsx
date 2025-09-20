@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
           <div className="space-y-8">
             <div className="intro-section">
               <div className="overflow-hidden">
-                <h2 className="text-xl font-medium text-blue-300 transform translate-y-0 animate-fade-in-up delay-200">
+                <h2 className="font-turbo text-xl font-medium text-blue-300 transform translate-y-0 animate-fade-in-up delay-200">
                   Hello, I'm
                 </h2>
               </div>
@@ -116,7 +116,7 @@ const HeroSection: React.FC = () => {
                 className="button-wrapper animate-fade-in-up"
                 style={{ animationDelay: "1000ms" }}
               >
-                <a href="#about" className="primary-button group">
+                <a href="#about" className="primary-button group cursor-target">
                   <span className="button-text">About Me</span>
                   <ExternalLink
                     size={18}
@@ -133,7 +133,7 @@ const HeroSection: React.FC = () => {
                 <a
                   href="/Vinit's Resume.pdf"
                   download="Vinit_Sharma_Resume.pdf"
-                  className="secondary-button group"
+                  className="secondary-button group  cursor-target  "
                 >
                   <span className="button-text">Download Resume</span>
                   <Download
@@ -141,7 +141,6 @@ const HeroSection: React.FC = () => {
                     className="ml-2 group-hover:translate-y-1 transition-transform"
                   />
                 </a>
-                
               </div>
             </div>
           </div>

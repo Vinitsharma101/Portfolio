@@ -65,10 +65,13 @@ const Projects: React.FC = () => {
           innovative solutions.
         </p>
 
-        <div ref={containerRef} className="relative w-full overflow-hidden">
+        <div
+          ref={containerRef}
+          className="relative w-full overflow-hidden  cursor-target"
+        >
           {/* Left Gradient */}
           <div className="absolute left-0 top-0 w-32 h-full z-10 pointer-events-none bg-gradient-to-r from-dark-surface to-transparent" />
-          
+
           <motion.div
             ref={contentRef}
             className="flex py-8"

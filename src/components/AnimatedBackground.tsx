@@ -1,25 +1,22 @@
 import React, { useEffect, useRef } from "react";
 import figmaIcon from "/assets/Figma.png";
-import jsonIcon from "/assets/JSON.png";
 import linkedinIcon from "/assets/LinkedIn.png";
-import mongodbIcon from "/assets/MongoDB.png";
 import nextjsIcon from "/assets/Next.js.png";
 import nodejsIcon from "/assets/Node.js.png";
 import reactIcon from "/assets/React.png";
-import typescriptIcon from "/assets/TypeScript.png";
 import vscodeIcon from "/assets/VS Code.png";
 
 const iconPaths = [
   figmaIcon,
   "/assets/Git.png",
   "/assets/JavaScript.png",
-  jsonIcon,
+  
   linkedinIcon,
-  mongodbIcon,
+  
   nextjsIcon,
   nodejsIcon,
   reactIcon,
-  typescriptIcon,
+  
   vscodeIcon,
 ];
 

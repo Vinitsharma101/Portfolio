@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -8,7 +9,7 @@ import {
   Smartphone,
   ExternalLink,
 } from "lucide-react";
-import {CardSpotlight} from "../components/card-spotlight";
+import { CardSpotlight } from "../components/card-spotlight";
 
 const About: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -18,13 +19,21 @@ const About: React.FC = () => {
       setScrollY(window.scrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <section id="about" className="py-24 bg-dark-surface relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8">
+    <section
+      id="about"
+      className="py-24 bg-dark-surface relative overflow-hidden"
+    >
+      {/* 🔹 BIG BACKGROUND TEXT */}
+      <div className="absolute top-8 left-4 text-[12rem] md:text-[18rem] font-extrabold text-white/5 select-none pointer-events-none leading-none z-0">
+        ABOUT
+      </div>
+
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">
             About Me
@@ -64,7 +73,7 @@ const About: React.FC = () => {
                 </ul>
               </div>
             </div>
-             
+
             {/* Right column - Tech Enthusiast Container */}
             <div>
               <CardSpotlight className="h-full">
@@ -109,10 +118,10 @@ const About: React.FC = () => {
                     build applications that make a difference.
                   </p>
 
-                  <div className="pt-4">
+                  <div className="pt-4 cursor-target">
                     <a
                       href="#tech"
-                      className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-red-500 to-purple-600 rounded-lg text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all text-sm"
+                      className="cursor-target inline-flex items-center px-5 py-2 bg-gradient-to-r from-red-500 to-purple-600 rounded-lg text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all text-sm"
                     >
                       View My Tech Stack
                       <ExternalLink size={16} className="ml-2" />
@@ -125,14 +134,14 @@ const About: React.FC = () => {
         </div>
       </div>
 
-
+      {/* Floating icon motion */}
       <motion.div
         className="absolute left-4 bottom-0 w-60 h-80 opacity-30"
         animate={{
-          y: -scrollY * 0.37
+          y: -scrollY * 0.37+75,
         }}
         transition={{
-          y: { type: "spring", stiffness: 70 }
+          y: { type: "spring", stiffness: 70 },
         }}
       >
         <motion.img
@@ -143,8 +152,8 @@ const About: React.FC = () => {
           animate={{ scale: 1.2 }}
           transition={{
             scale: {
-              duration: 0.5
-            }
+              duration: 0.5,
+            },
           }}
         />
       </motion.div>

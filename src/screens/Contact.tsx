@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import myphoto from "/assets/myphoto.jpg";
+// import myphoto from "/assets/myphoto.jpg";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink, CheckCircle, X } from "lucide-react";
 
 interface ContactProps {
@@ -132,7 +132,7 @@ const Contact: React.FC<ContactProps> = ({ onClose }) => {
                     {/* Profile picture - overlapping the header */}
                     <div className="w-24 h-24 rounded-full border-4 border-dark-bg overflow-hidden absolute -top-12 left-8">
                       <img
-                        src={myphoto}
+                        src="https://imgs.search.brave.com/Pyx_GJg2V_zlRgyOyoQYVBiVfjJ8HzVGpCCQepJP4Sg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2FlLzMx/L2M4L2FlMzFjODEz/M2JhNzUzYTBmZDYx/OGE1MGJmNzhmNTZk/LmpwZw"
                         alt="Vinit Sharma"
                         className="w-full h-full object-cover"
                       />
@@ -200,7 +200,7 @@ const Contact: React.FC<ContactProps> = ({ onClose }) => {
                       </h4>
                       <div className="flex space-x-4">
                         <a
-                          href="https://github.com"
+                          href="https://github.com/Vinitsharma101"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-gray-800/50 p-3 rounded-lg text-white hover:bg-gray-700/70 transition-colors"
@@ -208,7 +208,7 @@ const Contact: React.FC<ContactProps> = ({ onClose }) => {
                           <Github size={20} />
                         </a>
                         <a
-                          href="https://linkedin.com"
+                          href="www.linkedin.com/in/sharma-vinit101"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-gray-800/50 p-3 rounded-lg text-white hover:bg-gray-700/70 transition-colors"
@@ -216,7 +216,7 @@ const Contact: React.FC<ContactProps> = ({ onClose }) => {
                           <Linkedin size={20} />
                         </a>
                         <a
-                          href="https://example.com"
+                          href="buildwithvinit.vercel.app"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-gray-800/50 p-3 rounded-lg text-white hover:bg-gray-700/70 transition-colors"
