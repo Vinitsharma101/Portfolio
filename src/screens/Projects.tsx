@@ -55,16 +55,20 @@ const Projects: React.FC = () => {
     .map((project, index) => ({ ...project, id: index }));
 
   return (
-    <section id="projects" className="py-24 bg-dark-surface min-h-screen">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gradient-text">
-          Projects
-        </h2>
-        <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
-          Showcasing my recent work and the technologies I've used to build
-          innovative solutions.
-        </p>
-
+   <section id="projects" className="py-24 bg-dark-surface min-h-screen relative">
+  {/* 🔹 BIG BACKGROUND TEXT */}
+  <div className="absolute top-8 left-4 text-[12rem] md:text-[18rem] font-extrabold text-white/5 select-none pointer-events-none leading-none">
+    PROJECTS
+  </div>
+  
+  <div className="container mx-auto px-4 relative z-10">
+    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gradient-text">
+      Projects
+    </h2>
+    <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+      Showcasing my recent work and the technologies I've used to build
+      innovative solutions.
+    </p>
         <div
           ref={containerRef}
           className="relative w-full overflow-hidden  cursor-target"

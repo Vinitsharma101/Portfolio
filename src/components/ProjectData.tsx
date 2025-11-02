@@ -13,20 +13,7 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    title: "Music Streaming Platform",
-    description:
-      "A full-stack music streaming application with features like playlist creation, artist following, and personalized recommendations.",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Redux"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        alt: "Music player view",
-      },
-    ],
-    githubUrl: "https://github.com/Vinitsharma101/MusicPLayer...-MERN-",
-    liveUrl: "https://xonicbeatz.vercel.app/",
-  },
+
   {
     title: "Cryptocurrency Tracker",
     description:
@@ -41,7 +28,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Vinitsharma101/KoinXbackend-assignment",
     liveUrl: "https://github.com/Vinitsharma101/KoinXbackend-assignment",
   },
-
   {
     title: "Language Translator App",
     description:
@@ -57,19 +43,25 @@ export const projects: Project[] = [
     liveUrl: "https://github.com/Vinitsharma101",
   },
   {
-    title: "Real-Time Chat Application",
-    description:
-      "A mobile chat application built with React Native, enabling real-time messaging, media sharing, and notifications.",
-    technologies: ["React Native", "Firebase", "Socket.io", "Redux", "Expo"],
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        alt: "Chat interface with user messages",
-      },
-    ],
-    githubUrl: "https://github.com/Vinitsharma101/Chat-app",
-    liveUrl: "https://chattriix.vercel.app/",
-  },
+  title: "TokenBuddy - Smart Hospital Queue & Appointment System",
+  description:
+    "TokenBuddy is a modern healthcare web app that streamlines patient appointment booking and hospital management. Users can book appointments with doctors, hospitals can manage their profiles and schedules, and both sides experience a smooth, theme-adaptive interface with animations and responsive design.",
+  technologies: [
+    "React.js",
+    "TailwindCSS",
+    "Firebase",
+    "Framer Motion",
+    "TypeScript",
+  ],
+  images: [
+    {
+      url: "assets/tokenbuddy.png",
+      alt: "Dashboard view of TokenBuddy showing doctor listings, appointment booking, and hospital management sections",
+    },
+  ],
+  githubUrl: "https://tokenbuddy.in/",
+  liveUrl: "https://tokenbuddy.in/",
+},
   {
     title: "Location Sharing Web App",
     description:
@@ -110,6 +102,7 @@ export const projects: Project[] = [
       },
     ],
     githubUrl: "https://github.com/Vinitsharma101/teamsphere-ProMnager",
-    liveUrl: "https://github.com/Vinitsharma101/teamsphere-ProMnager",
+    liveUrl: "https://teamsphere.vercel.app/",
   },
+
 ];
